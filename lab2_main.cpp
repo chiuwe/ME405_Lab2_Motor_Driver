@@ -92,11 +92,7 @@ int main (void)
 	ser_port << clrscr << PMS ("ME405 Lab 1 Starting Program") << endl;
 
 	// Create the queues and other shared data items here
-// 	print_ser_queue = new frt_text_queue (32, ser_port, 10);
-
-	// The user interface is at low priority; it could have been run in the idle task
-	// but it is desired to exercise the RTOS more thoroughly in this test program
-	//new task_user ("UserInt", task_priority (1), 260, &ser_port);
+ 	// print_ser_queue = new frt_text_queue (32, ser_port, 10);
 
 	// Create a task which reads the A/D and adjusts an LED's brightness accordingly
 	new motor_controller ("Bright", task_priority (2), 280, &ser_port);

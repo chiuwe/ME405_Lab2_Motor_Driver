@@ -26,21 +26,31 @@ class motor_driver
 {
    protected:
     emstream* ptr_to_serial;
-    volatile uint16_t* compare;
+    volatile uint16_t *compare;
+    volatile uint8_t *direction;
+    uint8_t cw;
+    uint8_t ccw;
+    // need something to change motor directions.
 
    public:
+      // The constructor sets up the motor for use.
       motor_driver(emstream *p_serial_port,
                    volatile uint8_t *p_ddr,
                    uint8_t ddr_mask, 
                    volatile uint8_t *pwm,
                    uint8_t pwm_mask,
+                   volatile uint8_t *p_port,
+                   uint8_t cw_mask,
+                   uint8_t ccw_mask,
                    volatile uint8_t *p_tccra,
                    uint8_t tccra_mask,
                    volatile uint8_t *p_tccrb,
                    uint8_t tccrb_mask,
-                   volatile uint16_t *OCR);
-
+                   volatile uint16_t *p_ocr);
+      
+      // This method stops the motor.
       void set_power(int16_t power);
+
       void brake(void);
       void sample(void);
 

@@ -1,9 +1,9 @@
 //**************************************************************************************
 /** \file motor_controller.h
- *    This file contains the header for a task class that controls the brightness of an
- *    LED using a voltage measured from the A/D as input. The fun part: the brightness
- *    that is being controlled can be on another AVR computer, with signals being sent
- *    and received via wireless transceivers. */
+ *    This file contains the header for a motor controller class which controls speed
+ *    and direction of a motor using a voltage measured from the A/D as input. One
+ *    button will trigger stop and go. A second button will determine which motor is
+ *    being controlled. */
 //**************************************************************************************
 
 // This define prevents this .h file from being included multiple times in a .cpp file
@@ -28,11 +28,10 @@
 
 
 //-------------------------------------------------------------------------------------
-/** \brief This task controls the brightness of an LED using an analog input from the 
- *  A/D converter. 
+/** \brief This task controls the speed/direction of a motor using an analog input from
+ *  the A/D converter. 
  *  \details The A/D converter is run using a driver in files \c adc.h and \c adc.cpp.
- *  Code in this task sets up a timer/counter in PWM mode and controls the LED's 
- *  average brightness. 
+ *  Code in this controller check if the two button has been pressed. 
  */
 
 class motor_controller : public frt_task
@@ -45,10 +44,10 @@ protected:
 
 public:
 	// This constructor creates a generic task of which many copies can be made
-	motor_controller (const char*, unsigned portBASE_TYPE, size_t, emstream*);
+	motor_controller(const char*, unsigned portBASE_TYPE, size_t, emstream*);
 
 	// This method is called by the RTOS once to run the task loop for ever and ever.
-	void run (void);
+	void run(void);
 };
 
 #endif // _MOTOR_CONTROLLER_H_
