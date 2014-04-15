@@ -51,7 +51,7 @@
 #include "frt_queue.h"                      // Header of wrapper for FreeRTOS queues
 #include "frt_shared_data.h"                // Header for thread-safe shared data
 #include "shares.h"                         // Global ('extern') queue declarations
-#include "task_brightness.h"                // Header for the data acquisition task
+#include "motor_controller.h"               // Header for the data acquisition task
 #include "task_user.h"                      // Header for user interface task
 
 
@@ -99,7 +99,7 @@ int main (void)
 	//new task_user ("UserInt", task_priority (1), 260, &ser_port);
 
 	// Create a task which reads the A/D and adjusts an LED's brightness accordingly
-	new task_brightness ("Bright", task_priority (2), 280, &ser_port);
+	new motor_controller ("Bright", task_priority (2), 280, &ser_port);
 
 	// Here's where the RTOS scheduler is started up. It should never exit as long as
 	// power is on and the microcontroller isn't rebooted

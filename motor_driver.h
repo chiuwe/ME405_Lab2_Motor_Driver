@@ -46,11 +46,23 @@ class motor_driver
 {
    protected:
     emstream* ptr_to_serial;
+    volatile uint16_t* compare;
 
    public:
-      motor_driver (emstream* = NULL);
+      motor_driver(emstream *p_serial_port,
+                   volatile uint8_t *p_ddr,
+                   uint8_t ddr_mask, 
+                   volatile uint8_t *pwm,
+                   uint8_t pwm_mask,
+                   volatile uint8_t *p_tccra,
+                   uint8_t tccra_mask,
+                   volatile uint8_t *p_tccrb,
+                   uint8_t tccrb_mask,
+                   volatile uint16_t *OCR);
 
       void set_power(int16_t power);
+      void brake(void);
+      void sample(void);
 
 }; // end of class motor driver
 
