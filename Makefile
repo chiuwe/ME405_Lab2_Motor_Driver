@@ -26,7 +26,7 @@
 
 # The name of the program you're building, usually the file which contains main(). 
 # The name without its extension (.c or .cpp or whatever) must be given here. 
-TARGET = lab1_main
+TARGET = lab2_main
 
 # A list of the source (.c, .cc, .cpp) files in the project, including $(TARGET). Files
 # in library subdirectories do not go in this list; they're automatically in LIB_OBJS
