@@ -30,7 +30,7 @@
  *  @param ocr A pointer to the output compare register.
  */
 
-motor_driver::motor_driver(emstream *p_serial_port,
+motor_driver::motor_driver (emstream *p_serial_port,
                            volatile uint8_t *p_ddr,
                            uint8_t ddr_mask, 
                            volatile uint8_t *p_pwm,
@@ -50,19 +50,12 @@ motor_driver::motor_driver(emstream *p_serial_port,
    cw = cw_mask;
    ccw = ccw_mask;
 
-   *p_ddr = ddr_mask;
-   *p_pwm = pwm_mask;
-   *p_port = cw_mask;
-   *p_tccra = tccra_mask;
-   *p_tccrb = tccrb_mask;
-   *compare = 128;
-
-   // DDRC = (1 << 0) | (1 << 1) | (1 << 2);
-   // DDRB = (1 << 6);
-   // PORTC = (1 << 0) | (1 << 2);
-   // TCCR1A = (1 << COM1A1) | (1 << COM1B1) | (1 << COM1C1) | (1 << WGM10); // Fast PWM 8-bit
-   // TCCR1B = (1 << WGM12) | (1 << CS11) | (1 << CS10); // clk/64 (prescaler)
-   // OCR1B = 50;
+   *p_ddr |= ddr_mask;
+   *p_pwm |= pwm_mask;
+   *p_port |= cw_mask;
+   *p_tccra |= tccra_mask;
+   *p_tccrb |= tccrb_mask;
+   *compare = 0;
 
    DBG(ptr_to_serial, "Motor driver constructor OK" << endl);
 }
@@ -71,14 +64,20 @@ motor_driver::motor_driver(emstream *p_serial_port,
 //-------------------------------------------------------------------------------------
 /** \brief This method sets direction and duty cycle of the motor. 
  *  \details \b Details: This method determines direction and sets the duty cycle.
- *  @param power power setting, negative number reverse motor direction.
+ *  @param power power setting, negative number reverse motor direction [-255, 255].
  */
 
-void motor_driver::set_power(int16_t power) {
-   // compare = something;
-   // 128 = 0;
-   // < 128 = negative;
-   // > 128 = positive;
+void motor_driver::set_power (int16_t power) {
+   if (power > 0) {
+      power = power > 255 ? 255 : power;
+      *direction = cw;
+      *compare = power;
+   } else {
+      power = power < -255 ? -255 : power;
+      *direction = ccw;
+      *compare = abs(power);
+   }
+   //DBG(ptr_to_serial, "after power: " << power << endl);
 }
 
 //-------------------------------------------------------------------------------------
@@ -86,11 +85,6 @@ void motor_driver::set_power(int16_t power) {
  *  \details \b Details: This method stops the motor.
  */
 
-void motor_driver::brake(void) {
-
-
-}
-
-void motor_driver::sample(void) {
-   DBG(ptr_to_serial, "TCNT1: " << TCNT1 << endl);
+void motor_driver::brake (void) {
+   *compare = 0;
 }

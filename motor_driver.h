@@ -34,7 +34,7 @@ class motor_driver
 
    public:
       // The constructor sets up the motor for use.
-      motor_driver(emstream *p_serial_port,
+      motor_driver (emstream *p_serial_port,
                    volatile uint8_t *p_ddr,
                    uint8_t ddr_mask, 
                    volatile uint8_t *pwm,
@@ -49,10 +49,9 @@ class motor_driver
                    volatile uint16_t *p_ocr);
       
       // This method stops the motor.
-      void set_power(int16_t power);
+      void set_power (int16_t power);
 
-      void brake(void);
-      void sample(void);
+      void brake (void);
 
 }; // end of class motor driver
 
