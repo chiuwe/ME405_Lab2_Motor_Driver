@@ -36,7 +36,7 @@ class motor_driver
     uint8_t enable;
 
    public:
-      /// The constructor sets up the motor for use. It takes in the serial port, and various registers and their inputs/masks
+      // The constructor sets up the motor for use. It takes in the serial port, and various registers and their inputs/masks.
       motor_driver (emstream *p_serial_port,
                    volatile uint8_t *p_ddr,
                    uint8_t ddr_mask, 

@@ -2,7 +2,7 @@
 /** \file motor_driver.cpp
  *    This file contains a very simple motor driver. This driver should be used to
  *    provide power to a moter, varrying in strenth by changing the pwm, as well
- *    as a full out breaking function
+ *    as a full out breaking function.
  */
 //*************************************************************************************
 
@@ -44,7 +44,7 @@ motor_driver::motor_driver (emstream *p_serial_port,
                            uint8_t tccrb_mask,
                            volatile uint16_t *p_ocr) {  
 
-   ptr_to_serial = p_serial_port; //keep a instance of 
+   ptr_to_serial = p_serial_port; 
    compare = p_ocr;
    direction = p_port;
    enable = enable_mask;
@@ -80,7 +80,7 @@ void motor_driver::set_power (int16_t power) {
 
 //-------------------------------------------------------------------------------------
 /** \brief This method stops the motor.
- *  \details \b Details: This method stops the motor.
+ *  \details \b Details: This method brakes the motor to ground.
  */
 
 void motor_driver::brake (void) {
