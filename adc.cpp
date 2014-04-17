@@ -1,6 +1,9 @@
 //*************************************************************************************
 /** \file adc.cpp
- *    This file contains a very simple A/D converter driver. This driver should be
+ *    This file contains a very simple A/D converter driver. The driver is hopefully
+ *    thread safe in FreeRTOS due to the use of a mutex to prevent its use by multiple
+ *    tasks at the same time. There is no protection from priority inversion, however,
+ *    except for the priority elevation in the mutex.
  *
  *  Revisions:
  *    \li 01-15-2008 JRR Original (somewhat useful) file

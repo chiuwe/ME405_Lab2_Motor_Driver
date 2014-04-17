@@ -3,7 +3,7 @@
  *    This file provides the creation and interface for running a simple motor. You can
  *    change the power, which will take you from full forward to full reverse. If you 
  *    put the power at half it will freewheel. You can also break at any time.
-  */
+ */
 //======================================================================================
 
 // This define prevents this .H file from being included multiple times in a .CPP file
@@ -18,9 +18,9 @@
 
 
 //-------------------------------------------------------------------------------------
-/** \brief This class should run the motors on a microController
- *  \details This class takes in several ports and their inputs
-     and masks for a specific motherboard, as well as a serial port
+/** \brief This class runs the motor on the h-bridge chip.
+ *  \details This class takes in several ports and their inputs and masks for a 
+ *  specific motherboard, as well as a serial port.
  */
 
 class motor_driver
