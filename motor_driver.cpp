@@ -1,6 +1,8 @@
 //*************************************************************************************
 /** \file motor_driver.cpp
- *    This file contains a very simple A/D converter driver. This driver should be
+ *    This file contains a very simple motor driver. This driver should be used to
+ *    provide power to a moter, varrying in strenth by changing the pwm, as well
+ *    as a full out breaking function
  */
 //*************************************************************************************
 
@@ -42,7 +44,7 @@ motor_driver::motor_driver (emstream *p_serial_port,
                            uint8_t tccrb_mask,
                            volatile uint16_t *p_ocr) {  
 
-   ptr_to_serial = p_serial_port;
+   ptr_to_serial = p_serial_port; //keep a instance of 
    compare = p_ocr;
    direction = p_port;
    enable = enable_mask;

@@ -12,8 +12,9 @@
 
 
 //-------------------------------------------------------------------------------------
-/** This constructor creates a task which controls the brightness of an LED using
- *  input from an A/D converter. The main job of this constructor is to call the
+/** This constructor creates a task which controls the speed of a motor using
+ *  input from an A/D converter run through a potentiometer as well as an input from.
+ *  a button. The main job of this constructor is to call the
  *  constructor of parent class (\c frt_task ); the parent's constructor the work.
  *  @param a_name A character string which will be the name of this task
  *  @param a_priority The priority at which this task will initially run (default: 0)
@@ -38,7 +39,8 @@ motor_controller::motor_controller (const char* a_name,
 //-------------------------------------------------------------------------------------
 /** This method is called once by the RTOS scheduler. Each time around the for (;;)
  *  loop, it reads the A/D converter and change the selected motors speed. Each loop
- *  also check the two additional buttons.
+ *  also check the two additional buttons, which control the brakes of the individual
+ *  motors.
  */
 
 void motor_controller::run (void) {

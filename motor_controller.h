@@ -1,9 +1,9 @@
 //**************************************************************************************
 /** \file motor_controller.h
  *    This file contains the header for a motor controller class which controls speed
- *    and direction of a motor using a voltage measured from the A/D as input. One
- *    button will trigger stop and go. A second button will determine which motor is
- *    being controlled. */
+ *    and direction of a motor using a voltage measured from the A/D as input. A 
+ *    potentiomiter is used for speed and a single button controls the break. One each
+ *    for each motor */
 //**************************************************************************************
 
 // This define prevents this .h file from being included multiple times in a .cpp file
@@ -31,7 +31,8 @@
 /** \brief This task controls the speed/direction of a motor using an analog input from
  *  the A/D converter. 
  *  \details The A/D converter is run using a driver in files \c adc.h and \c adc.cpp.
- *  Code in this controller check if the two button has been pressed. 
+ *  An anolog input through a POT goes through the adc and is used to control the speed
+ *  of the motor.
  */
 
 class motor_controller : public frt_task

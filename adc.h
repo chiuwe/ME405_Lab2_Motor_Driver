@@ -47,7 +47,7 @@ class adc
 	protected:
 		/// The ADC class uses this pointer to the serial port to say hello
 		emstream* ptr_to_serial;
-		/// does this work?
+		/// Initial admux value
 		uint8_t ADMUX_init;
 
    public:

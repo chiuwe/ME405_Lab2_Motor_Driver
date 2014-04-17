@@ -1,9 +1,9 @@
 //======================================================================================
 /** \file motor_driver.h
- *    This file contains a very simple A/D converter driver. The driver is hopefully
- *    thread safe in FreeRTOS due to the use of a mutex to prevent its use by multiple
- *    tasks at the same time. There is no protection from priority inversion, however,
- *    except for the priority elevation in the mutex. */
+ *    This file provides the creation and interface for running a simple motor. You can
+ *    change the power, which will take you from full forward to full reverse. If you 
+ *    put the power at half it will freewheel. You can also break at any time.
+  */
 //======================================================================================
 
 // This define prevents this .H file from being included multiple times in a .CPP file
@@ -18,8 +18,9 @@
 
 
 //-------------------------------------------------------------------------------------
-/** \brief This class should run the A/D converter on an AVR processor. 
- *  \details It should have some better comments. Yes, this is a \b subtle \b hint. 
+/** \brief This class should run the motors on a microController
+ *  \details This class takes in several ports and their inputs
+     and masks for a specific motherboard, as well as a serial port
  */
 
 class motor_driver
@@ -35,7 +36,7 @@ class motor_driver
     uint8_t enable;
 
    public:
-      // The constructor sets up the motor for use.
+      /// The constructor sets up the motor for use. It takes in the serial port, and various registers and their inputs/masks
       motor_driver (emstream *p_serial_port,
                    volatile uint8_t *p_ddr,
                    uint8_t ddr_mask, 
@@ -49,7 +50,6 @@ class motor_driver
                    uint8_t tccrb_mask,
                    volatile uint16_t *p_ocr);
       
-      // This method stops the motor.
       void set_power (int16_t power);
 
       void brake (void);
