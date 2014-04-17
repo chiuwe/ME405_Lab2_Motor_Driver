@@ -50,19 +50,25 @@ void motor_controller::run (void) {
 	// (1 << COM1A1) | (1 << COM1B1) | (1 << COM1C1) | (1 << WGM10) Fast PWM 8-bit
    // (1 << WGM12) | (1 << CS11) | (1 << CS10) clk/64 (prescaler)
    // outputs 16E6/64/255 = 980Hz PWM
-	motor_driver *p_my_motor_driver1 = new motor_driver(p_serial, &DDRC, 0x07, &DDRB, 0x40, &PORTC, 0x05, 0x06, &TCCR1A, 0xA9, &TCCR1B, 0x0B, &OCR1B);
-	motor_driver *p_my_motor_driver2 = new motor_driver(p_serial, &DDRD, 0xE0, &DDRB, 0x20, &PORTD, 0xA0, 0xC0, &TCCR1A, 0xA9, &TCCR1B, 0x0B, &OCR1A);
+	motor_driver *p_my_motor_driver1 = new motor_driver(p_serial, &DDRC, 0x07, &DDRB, 0x40, &PORTC, 0x10, &TCCR1A, 0xA9, &TCCR1B, 0x0B, &OCR1B);
+	motor_driver *p_my_motor_driver2 = new motor_driver(p_serial, &DDRD, 0xE0, &DDRB, 0x20, &PORTD, 0x20, &TCCR1A, 0xA9, &TCCR1B, 0x0B, &OCR1A);
    adc *p_my_adc = new adc(p_serial);
 
 	// This is the task loop for the motor control task. This loop runs until the
 	// power is turned off or something equally dramatic occurs.
-   p_my_motor_driver2->set_power(250);
-   p_my_motor_driver1->set_power(-250);
 	for (;;) {
-      a2d_reading1 = p_my_adc->read_once(0);
-      a2d_reading2 = p_my_adc->read_once(1);
-      p_my_motor_driver1->set_power((a2d_reading1 / 2) - 255);
-      p_my_motor_driver2->set_power((a2d_reading2 / 2) - 255);
+      if (PINC & 0x01) {
+         p_my_motor_driver1->brake();
+      } else {
+         a2d_reading1 = p_my_adc->read_once(0);
+         p_my_motor_driver1->set_power((a2d_reading1 / 2) - 255);
+      }
+      if (PINC & 0x02) {
+         p_my_motor_driver2->brake();
+      } else {
+         a2d_reading2 = p_my_adc->read_once(1);
+         p_my_motor_driver2->set_power((a2d_reading2 / 2) - 255);
+      }
 		delay_from_to (previousTicks, configMS_TO_TICKS (100));
 	}
 }

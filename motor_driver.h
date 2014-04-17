@@ -28,8 +28,7 @@ class motor_driver
     emstream* ptr_to_serial;
     volatile uint16_t *compare;
     volatile uint8_t *direction;
-    uint8_t cw;
-    uint8_t ccw;
+    uint8_t enable;
     // need something to change motor directions.
 
    public:
@@ -40,8 +39,7 @@ class motor_driver
                    volatile uint8_t *pwm,
                    uint8_t pwm_mask,
                    volatile uint8_t *p_port,
-                   uint8_t cw_mask,
-                   uint8_t ccw_mask,
+                   uint8_t enable_mask,
                    volatile uint8_t *p_tccra,
                    uint8_t tccra_mask,
                    volatile uint8_t *p_tccrb,

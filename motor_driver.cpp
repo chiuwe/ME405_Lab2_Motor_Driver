@@ -36,8 +36,7 @@ motor_driver::motor_driver (emstream *p_serial_port,
                            volatile uint8_t *p_pwm,
                            uint8_t pwm_mask,
                            volatile uint8_t *p_port,
-                           uint8_t cw_mask,
-                           uint8_t ccw_mask,
+                           uint8_t enable_mask,
                            volatile uint8_t *p_tccra,
                            uint8_t tccra_mask,
                            volatile uint8_t *p_tccrb,
@@ -47,12 +46,11 @@ motor_driver::motor_driver (emstream *p_serial_port,
    ptr_to_serial = p_serial_port;
    compare = p_ocr;
    direction = p_port;
-   cw = cw_mask;
-   ccw = ccw_mask;
+   enable = enable_mask;
 
    *p_ddr |= ddr_mask;
    *p_pwm |= pwm_mask;
-   *p_port |= cw_mask;
+   *p_port |= enable | (enable << 2);
    *p_tccra |= tccra_mask;
    *p_tccrb |= tccrb_mask;
    *compare = 0;
@@ -70,11 +68,11 @@ motor_driver::motor_driver (emstream *p_serial_port,
 void motor_driver::set_power (int16_t power) {
    if (power > 0) {
       power = power > 255 ? 255 : power;
-      *direction = cw;
+      *direction = enable | (enable << 2);
       *compare = power;
    } else {
       power = power < -255 ? -255 : power;
-      *direction = ccw;
+      *direction = enable | (enable << 1);
       *compare = abs(power);
    }
    //DBG(ptr_to_serial, "after power: " << power << endl);
@@ -86,5 +84,5 @@ void motor_driver::set_power (int16_t power) {
  */
 
 void motor_driver::brake (void) {
-   *compare = 0;
+   *direction = enable;
 }
