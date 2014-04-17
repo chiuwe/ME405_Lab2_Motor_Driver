@@ -19,15 +19,14 @@
  *  @param p_ddr A pointer to the DDRx for INx and DIAGx on h-bridge chip.
  *  @param ddr_mask Enable pin settings on h-bridge chip.
  *  @param p_pwm A pointer to the DDRx for pwn pin on h-bridge chip.
- *  @param p_port
- *  @param cw_mask
- *  @param ccw_mask
  *  @param pwm_mask Enable pwm pin on h-bridge chip.
+ *  @param p_port A pointer to enable h-bridge chip.
+ *  @param enable_mask A mask for the DIAG/EN pin for h-bridge chip.
  *  @param p_tccra A pointer to the timer/counter register A.
  *  @param tccra_mask Timer/counter register A mask.
  *  @param p_tccrb A pointer to the timer/counter register B.
  *  @param tccrb_mask Timer/counter register B mask.
- *  @param ocr A pointer to the output compare register.
+ *  @param p_ocr A pointer to the output compare register.
  */
 
 motor_driver::motor_driver (emstream *p_serial_port,
@@ -50,7 +49,7 @@ motor_driver::motor_driver (emstream *p_serial_port,
 
    *p_ddr |= ddr_mask;
    *p_pwm |= pwm_mask;
-   *p_port |= enable | (enable << 2);
+   *p_port |= enable | (enable >> 2);
    *p_tccra |= tccra_mask;
    *p_tccrb |= tccrb_mask;
    *compare = 0;
@@ -68,14 +67,13 @@ motor_driver::motor_driver (emstream *p_serial_port,
 void motor_driver::set_power (int16_t power) {
    if (power > 0) {
       power = power > 255 ? 255 : power;
-      *direction = enable | (enable << 2);
+      *direction = enable | (enable >> 2);
       *compare = power;
    } else {
       power = power < -255 ? -255 : power;
-      *direction = enable | (enable << 1);
+      *direction = enable | (enable >> 1);
       *compare = abs(power);
    }
-   //DBG(ptr_to_serial, "after power: " << power << endl);
 }
 
 //-------------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main',['main',['../lab1__main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'lab1_main.cpp']]]
+  ['compare',['compare',['../classmotor__driver.html#a3c15d9a1839e286d7f5081b471c6f967',1,'motor_driver']]]
 ];

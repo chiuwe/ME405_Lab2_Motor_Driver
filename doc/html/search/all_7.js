@@ -1,10 +1,4 @@
 var searchData=
 [
-  ['task_5fbrightness',['task_brightness',['../classtask__brightness.html',1,'task_brightness'],['../classtask__brightness.html#a5802baf3a0c9fe53ccbce8966d1fad47',1,'task_brightness::task_brightness()']]],
-  ['task_5fbrightness_2ecpp',['task_brightness.cpp',['../task__brightness_8cpp.html',1,'']]],
-  ['task_5fbrightness_2eh',['task_brightness.h',['../task__brightness_8h.html',1,'']]],
-  ['task_5fuser',['task_user',['../classtask__user.html',1,'task_user'],['../classtask__user.html#a3aba77563b375bb14838800608da48bc',1,'task_user::task_user()']]],
-  ['task_5fuser_2ecpp',['task_user.cpp',['../task__user_8cpp.html',1,'']]],
-  ['task_5fuser_2eh',['task_user.h',['../task__user_8h.html',1,'']]],
-  ['ticks_5fto_5fdelay',['ticks_to_delay',['../task__user_8cpp.html#a80f7a5c45b5679c45dd218506ab058f0',1,'task_user.cpp']]]
+  ['operator_3c_3c',['operator&lt;&lt;',['../adc_8cpp.html#afb33ca9fe94765ee57079e7feb03f975',1,'operator&lt;&lt;(emstream &amp;serpt, adc &amp;a2d):&#160;adc.cpp'],['../adc_8h.html#a6e6d1e227b216fe2a1fee9b0ea52180d',1,'operator&lt;&lt;(emstream &amp;, adc &amp;):&#160;adc.cpp']]]
 ];

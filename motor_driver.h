@@ -25,11 +25,14 @@
 class motor_driver
 {
    protected:
+    /// The motor driver class uses this pointer print to the serial port.
     emstream* ptr_to_serial;
+    /// This points to the compare register.
     volatile uint16_t *compare;
+    /// This points to the direction register.
     volatile uint8_t *direction;
+    /// Enable pin on h-bridge chip.
     uint8_t enable;
-    // need something to change motor directions.
 
    public:
       // The constructor sets up the motor for use.

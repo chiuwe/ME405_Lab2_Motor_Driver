@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['read_5fonce',['read_once',['../classadc.html#a2190a59696a7093e1ea605e998ccf97e',1,'adc']]],
-  ['read_5foversampled',['read_oversampled',['../classadc.html#a58f1030fe64d3dea4ccd8a2687dd6fce',1,'adc']]],
-  ['run',['run',['../classtask__brightness.html#a615beac07a99f0856f048a46fd9a3898',1,'task_brightness::run()'],['../classtask__user.html#adca6429d57be25e8d411414fc8ad75af',1,'task_user::run()']]]
+  ['print_5fhelp_5fmessage',['print_help_message',['../classtask__user.html#a75475060f83bae1e44bcc8a5c34015c7',1,'task_user']]],
+  ['print_5fser_5fqueue',['print_ser_queue',['../lab2__main_8cpp.html#a4c623cb3c8a60e67138367480c1ee0d2',1,'lab2_main.cpp']]]
 ];

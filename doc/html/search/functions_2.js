@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['operator_3c_3c',['operator&lt;&lt;',['../adc_8cpp.html#afb33ca9fe94765ee57079e7feb03f975',1,'operator&lt;&lt;(emstream &amp;serpt, adc &amp;a2d):&#160;adc.cpp'],['../adc_8h.html#a6e6d1e227b216fe2a1fee9b0ea52180d',1,'operator&lt;&lt;(emstream &amp;, adc &amp;):&#160;adc.cpp']]]
+  ['main',['main',['../lab2__main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'lab2_main.cpp']]],
+  ['motor_5fcontroller',['motor_controller',['../classmotor__controller.html#aaa83f92adf06ac1bae24832f6ca24264',1,'motor_controller']]],
+  ['motor_5fdriver',['motor_driver',['../classmotor__driver.html#a8ae335815e1a1ef23904750562639346',1,'motor_driver']]]
 ];

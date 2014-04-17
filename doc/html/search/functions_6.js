@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['task_5fbrightness',['task_brightness',['../classtask__brightness.html#a5802baf3a0c9fe53ccbce8966d1fad47',1,'task_brightness']]],
-  ['task_5fuser',['task_user',['../classtask__user.html#a3aba77563b375bb14838800608da48bc',1,'task_user']]]
+  ['set_5fpower',['set_power',['../classmotor__driver.html#ae8f7bd6aa553abf071abcebc876a9e10',1,'motor_driver']]],
+  ['show_5fstatus',['show_status',['../classtask__user.html#a105bebbd9cb1031154c3dfc3662db4a0',1,'task_user']]]
 ];

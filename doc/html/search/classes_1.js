@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['task_5fbrightness',['task_brightness',['../classtask__brightness.html',1,'']]],
-  ['task_5fuser',['task_user',['../classtask__user.html',1,'']]]
+  ['motor_5fcontroller',['motor_controller',['../classmotor__controller.html',1,'']]],
+  ['motor_5fdriver',['motor_driver',['../classmotor__driver.html',1,'']]]
 ];

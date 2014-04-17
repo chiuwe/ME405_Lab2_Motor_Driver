@@ -136,20 +136,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">        /// does this work?</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classadc.html#a6df75e4965d01b573c088c052e9c80c6">   51</a></span>&#160;<span class="comment"></span>        uint8_t <a class="code" href="classadc.html#a6df75e4965d01b573c088c052e9c80c6">ADMUX_init</a>;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;   <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">// The constructor sets up the A/D converter for use. The &quot;= NULL&quot; part is a</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="comment">// default parameter, meaning that if that parameter isn&#39;t given on the line</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">// where this constructor is called, the compiler will just fill in &quot;NULL&quot;.</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">// In this case that has the effect of turning off diagnostic printouts</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="classadc.html#af3b8262c08f5fc5ae325a20622883424">adc</a> (emstream* = NULL);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="classadc.html#af3b8262c08f5fc5ae325a20622883424">adc</a>(emstream* = NULL);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="comment">// This function reads one channel once, returning the result as an unsigned </span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">// integer; it should be called from within a normal task, not an ISR</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        uint16_t <a class="code" href="classadc.html#a2190a59696a7093e1ea605e998ccf97e">read_once</a> (uint8_t);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      uint16_t <a class="code" href="classadc.html#a2190a59696a7093e1ea605e998ccf97e">read_once</a>(uint8_t);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="comment">// This function reads the A/D lots of times and returns the average. Doing so</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="comment">// implements a crude sort of low-pass filtering that can help reduce noise</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        uint16_t <a class="code" href="classadc.html#a58f1030fe64d3dea4ccd8a2687dd6fce">read_oversampled</a> (uint8_t, uint8_t);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        uint16_t <a class="code" href="classadc.html#a58f1030fe64d3dea4ccd8a2687dd6fce">read_oversampled</a>(uint8_t, uint8_t);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}; <span class="comment">// end of class adc</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
@@ -169,7 +169,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 9 2014 20:35:35 for ME405 Lab 1 - ADC by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 16 2014 19:07:24 for ME405 Lab 1 - ADC by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

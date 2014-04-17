@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lab1_5fmain_2ecpp',['lab1_main.cpp',['../lab1__main_8cpp.html',1,'']]]
+  ['lab2_5fmain_2ecpp',['lab2_main.cpp',['../lab2__main_8cpp.html',1,'']]]
 ];

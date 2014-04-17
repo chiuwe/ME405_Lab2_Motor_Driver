@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lab1_5fmain_2ecpp',['lab1_main.cpp',['../lab1__main_8cpp.html',1,'']]]
+  ['brake',['brake',['../classmotor__driver.html#aa21e7894053cd83968d9e6b2958c9aec',1,'motor_driver']]]
 ];
